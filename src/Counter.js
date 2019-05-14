@@ -5,7 +5,7 @@ const Counter = () => {
   const [counterInput, setCounterInput] = useState(0)
   const handleSubmit = evt => {
     evt.preventDefault()
-    setCounter(counterInput)
+    if (counterInput !== '') setCounter(counterInput)
   }
   const handleChange = evt => {
     const { value } = evt.target
@@ -15,11 +15,11 @@ const Counter = () => {
   return (
     <Fragment>
       <h1>Counter: {counter}</h1>
-      <button type="button" onClick={() => setCounter(counter + 1)}>
-        +
-      </button>
       <button type="button" onClick={() => setCounter(counter - 1)}>
         -
+      </button>
+      <button type="button" onClick={() => setCounter(counter + 1)}>
+        +
       </button>
       <form onSubmit={handleSubmit}>
         <label htmlFor="counterInput" />
