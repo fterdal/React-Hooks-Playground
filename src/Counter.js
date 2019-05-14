@@ -1,8 +1,15 @@
 import React, { Fragment, useState } from 'react'
 
+// const waitFor = ms => new Promise(resolve => setTimeout(resolve, ms))
+
+const coinFlip = () => Math.floor(Math.random() * 10) % 2 === 0
+
 const Counter = () => {
-  const [counter, setCounter] = useState(0)
-  const [counterInput, setCounterInput] = useState(0)
+  let counter, setCounter, counterInput, setCounterInput
+  if (coinFlip()) {
+    [counter, setCounter] = useState(0);
+    [counterInput, setCounterInput] = useState(0);
+  }
   const handleSubmit = evt => {
     evt.preventDefault()
     if (counterInput !== '') setCounter(counterInput)
