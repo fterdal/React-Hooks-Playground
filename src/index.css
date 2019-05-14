@@ -1,0 +1,20 @@
+/*
+Nice colors:
+https://coolors.co/b9ffb7-75b9be-ff8c69-db162f-403233
+- salmon: 75b9be
+*/
+
+body {
+  margin: 0px;
+  box-sizing: border-box;
+  background-color: #ff8c69;
+  color: #403233;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

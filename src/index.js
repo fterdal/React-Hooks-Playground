@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import Counter from './Counter'
 
+import './index.css'
 const App = () => {
   return (
-    <Fragment>
+    <div id="container">
       <Counter />
-    </Fragment>
+    </div>
   )
 }
 

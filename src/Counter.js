@@ -4,6 +4,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 
 // const coinFlip = () => Math.floor(Math.random() * 10) % 2 === 0
 
+import './Counter.css'
 const Counter = () => {
   const [counter, setCounter] = useState(0)
   const [counterInput, setCounterInput] = useState(0)
@@ -20,16 +21,17 @@ const Counter = () => {
     else if (value === '') setCounterInput('')
   }
   return (
-    <Fragment>
+    <div id="counter">
       <h1>Counter: {counter}</h1>
-      <button type="button" onClick={() => setCounter(counter - 1)}>
-        -
-      </button>
-      <button type="button" onClick={() => setCounter(counter + 1)}>
-        +
-      </button>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="counterInput" />
+      <div className="buttons">
+        <button type="button" onClick={() => setCounter(counter - 1)}>
+          -
+        </button>
+        <button type="button" onClick={() => setCounter(counter + 1)}>
+          +
+        </button>
+      </div>
+      <form className="counter-form" onSubmit={handleSubmit}>
         <input
           name="counterInput"
           onChange={handleChange}
@@ -37,7 +39,7 @@ const Counter = () => {
         />
         <button type="submit">Set</button>
       </form>
-    </Fragment>
+    </div>
   )
 }
 
