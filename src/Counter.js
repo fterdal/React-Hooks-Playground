@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 
 // const waitFor = ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -7,6 +7,9 @@ import React, { Fragment, useState } from 'react'
 const Counter = () => {
   const [counter, setCounter] = useState(0)
   const [counterInput, setCounterInput] = useState(0)
+  useEffect(() => {
+    console.log('USING AN EFFECT? 🤷‍♂️')
+  }, []) // <- With the array, will not run every render, only on first render
   const handleSubmit = evt => {
     evt.preventDefault()
     if (counterInput !== '') setCounter(counterInput)
