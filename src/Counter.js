@@ -8,8 +8,8 @@ const Counter = () => {
   const [counter, setCounter] = useState(0)
   const [counterInput, setCounterInput] = useState(0)
   useEffect(() => {
-    console.log('USING AN EFFECT? 🤷‍♂️')
-  }, []) // <- With the array, will not run every render, only on first render
+    document.title = `Counter: ${counter}`
+  }, [counter]) // <- With the array, will not run every render, only on first render
   const handleSubmit = evt => {
     evt.preventDefault()
     if (counterInput !== '') setCounter(counterInput)
