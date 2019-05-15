@@ -11,6 +11,10 @@ const initialPuppies = [
     id: 2,
     name: 'Priti'
   },
+  {
+    id: 3,
+    name: 'Collin'
+  },
 ]
 
 const ADD_PUPPY = 'ADD_PUPPY'
