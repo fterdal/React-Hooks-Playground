@@ -6,11 +6,15 @@ import React, { useState, useEffect } from 'react'
 
 import './Counter.css'
 const Counter = () => {
+  // USE STATE DEMO
   const [counter, setCounter] = useState(0)
   const [counterInput, setCounterInput] = useState(0)
+
+  // USE EFFECT DEMO
   useEffect(() => {
     document.title = `Counter: ${counter}`
   }, [counter]) // <- Will only run when counter changes
+
   const handleSubmit = evt => {
     evt.preventDefault()
     if (counterInput !== '') setCounter(counterInput)
@@ -20,10 +24,12 @@ const Counter = () => {
     if (['', '0', '-'].includes(value)) setCounterInput(value)
     else if (Number(value)) setCounterInput(Number(value))
   }
+
   return (
     <div id="counter">
       <h1>
-        <span>Counter:</span><span>{counter}</span>
+        <span>Counter:</span>
+        <span>{counter}</span>
       </h1>
       <div className="counter-buttons">
         <button type="button" onClick={() => setCounter(counter - 1)}>

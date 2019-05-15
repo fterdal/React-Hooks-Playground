@@ -1,25 +1,22 @@
 import React, { useReducer } from 'react'
 
+/** REDUX, REACT HOOKS STYLE
+ * This apprach is nice and clean, but as it stands, it lacks some essential
+ * feature from Redux. In particular, I'd like these things:
+ * - Middleware support (this is a big one)
+ *   - logging
+ *   - thunks
+ * - combineReducers
+ * - DevTools
+ */
+
 export const PuppiesContext = React.createContext()
 
-const initialPuppies = [
-  {
-    id: 1,
-    name: 'Finn'
-  },
-  {
-    id: 2,
-    name: 'Priti'
-  },
-  {
-    id: 3,
-    name: 'Collin'
-  },
-]
-
+// ACTION TYPES
 const ADD_PUPPY = 'ADD_PUPPY'
 const DELETE_PUPPY = 'DELETE_PUPPY'
 
+// ACTION CREATORS
 export const addPuppy = puppy => ({
   type: ADD_PUPPY,
   puppy,
@@ -30,6 +27,7 @@ export const deletePuppy = puppyId => ({
   puppyId,
 })
 
+// JUST A HELPFUL FUNCTION 😄
 const nextId = arr => {
   if (!arr.length) return 1
   return (
@@ -40,6 +38,7 @@ const nextId = arr => {
   )
 }
 
+// REDUCER
 const reducer = (state, action) => {
   switch (action.type) {
     case ADD_PUPPY: {
@@ -57,18 +56,20 @@ const reducer = (state, action) => {
   }
 }
 
-/* ☢️ MUTATES AN ARRAY. REACT COMPONENTS WILL NOT KNOW TO RE-RENDER */
-// const puppiesContext = {
-//   puppies: initialPuppies,
-//   addPuppy: function(name) {
-//     console.log('this', this)
-//     this.puppies.push({
-//       id: nextId(this.puppies),
-//       name,
-//     })
-//   },
-// }
-// puppiesContext.addPuppy = puppiesContext.addPuppy.bind(puppiesContext)
+const initialPuppies = [
+  {
+    id: 1,
+    name: 'Finn',
+  },
+  {
+    id: 2,
+    name: 'Priti',
+  },
+  {
+    id: 3,
+    name: 'Collin',
+  },
+]
 
 const PuppiesProvider = props => {
   const [state, dispatch] = useReducer(reducer, initialPuppies)
