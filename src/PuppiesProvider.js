@@ -2,16 +2,7 @@ import React, { useReducer } from 'react'
 
 export const PuppiesContext = React.createContext()
 
-const initialPuppies = [
-  {
-    id: 1,
-    name: 'Josh',
-  },
-  {
-    id: 2,
-    name: 'Tina',
-  },
-]
+const initialPuppies = []
 
 const ADD_PUPPY = 'ADD_PUPPY'
 
@@ -21,6 +12,7 @@ export const addPuppy = puppy => ({
 })
 
 const nextId = arr => {
+  if (!arr.length) return 1
   return (
     1 +
     arr.reduce((highest, item) => {

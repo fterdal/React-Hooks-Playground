@@ -7,6 +7,7 @@ const PuppyForm = () => {
   const handleSubmit = evt => {
     evt.preventDefault()
     dispatch(addPuppy(name))
+    setName('')
   }
   return (
     <form onSubmit={handleSubmit}>
@@ -14,6 +15,7 @@ const PuppyForm = () => {
       <input
         name="name"
         onChange={(evt) => setName(evt.target.value)}
+        value={name}
       />
       <button type="submit">Add Puppy</button>
     </form>
