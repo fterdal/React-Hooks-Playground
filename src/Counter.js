@@ -25,7 +25,7 @@ const Counter = () => {
       <h1>
         <span>Counter:</span><span>{counter}</span>
       </h1>
-      <div className="buttons">
+      <div className="counter-buttons">
         <button type="button" onClick={() => setCounter(counter - 1)}>
           -
         </button>
