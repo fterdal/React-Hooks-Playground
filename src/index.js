@@ -1,12 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Counter from './Counter'
+// import Counter from './Counter'
+import Puppies from './Puppies'
 
 import './index.css'
 const App = () => {
   return (
     <div id="container">
-      <Counter />
+      {/* <Counter /> */}
+      <Puppies />
     </div>
   )
 }
