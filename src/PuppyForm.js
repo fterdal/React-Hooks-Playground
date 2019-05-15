@@ -11,7 +11,7 @@ const PuppyForm = () => {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name:</label>
+      {/* <label htmlFor="name">Name:</label> */}
       <input
         name="name"
         onChange={(evt) => setName(evt.target.value)}

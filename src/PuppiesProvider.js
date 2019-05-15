@@ -2,13 +2,28 @@ import React, { useReducer } from 'react'
 
 export const PuppiesContext = React.createContext()
 
-const initialPuppies = []
+const initialPuppies = [
+  {
+    id: 1,
+    name: 'Finn'
+  },
+  {
+    id: 2,
+    name: 'Priti'
+  },
+]
 
 const ADD_PUPPY = 'ADD_PUPPY'
+const DELETE_PUPPY = 'DELETE_PUPPY'
 
 export const addPuppy = puppy => ({
   type: ADD_PUPPY,
   puppy,
+})
+
+export const deletePuppy = puppyId => ({
+  type: DELETE_PUPPY,
+  puppyId,
 })
 
 const nextId = arr => {
@@ -29,6 +44,9 @@ const reducer = (state, action) => {
         id: nextId(state),
       }
       return [...state, newPuppy]
+    }
+    case DELETE_PUPPY: {
+      return state.filter(puppy => puppy.id !== action.puppyId)
     }
     default:
       return state

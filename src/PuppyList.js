@@ -4,12 +4,13 @@ import PuppyItem from './PuppyItem'
 
 // NOTE that now, the component re-renders because the state from PuppiesContext
 // is different. Not just mutated, but actually a different object
+import './PuppyList.css'
 const PuppyList = () => {
   const { state: puppies } = useContext(PuppiesContext)
   return (
     <div>
       {puppies.length ? (
-        <ul>
+        <ul className="puppy-list">
           {puppies.map(puppy => (
             <PuppyItem key={puppy.id} puppy={puppy} />
           ))}

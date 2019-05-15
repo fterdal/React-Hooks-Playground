@@ -3,4 +3,16 @@
   margin: 2px;
   padding: 2px;
   border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.puppy-item p {
+  margin: 0px;
+}
+
+.puppy-item button {
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
 }
