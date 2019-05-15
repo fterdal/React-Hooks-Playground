@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import Counter from './Counter'
+import Counter from './Counter'
 import PuppiesProvider from './PuppiesProvider'
 import PuppyForm from './PuppyForm'
 import PuppyList from './PuppyList'
@@ -9,7 +9,7 @@ import './index.css'
 const App = () => {
   return (
     <div id="container">
-      {/* <Counter /> */}
+      <Counter />
       <PuppiesProvider>
         <div className="puppy-container">
           <PuppyForm />

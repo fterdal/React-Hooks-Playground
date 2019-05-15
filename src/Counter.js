@@ -10,19 +10,21 @@ const Counter = () => {
   const [counterInput, setCounterInput] = useState(0)
   useEffect(() => {
     document.title = `Counter: ${counter}`
-  }, [counter]) // <- With the array, will not run every render, only on first render
+  }, [counter]) // <- Will only run when counter changes
   const handleSubmit = evt => {
     evt.preventDefault()
     if (counterInput !== '') setCounter(counterInput)
   }
   const handleChange = evt => {
     const { value } = evt.target
-    if (Number(value)) setCounterInput(Number(value))
-    else if (value === '') setCounterInput('')
+    if (['', '0', '-'].includes(value)) setCounterInput(value)
+    else if (Number(value)) setCounterInput(Number(value))
   }
   return (
     <div id="counter">
-      <h1>Counter: {counter}</h1>
+      <h1>
+        <span>Counter:</span><span>{counter}</span>
+      </h1>
       <div className="buttons">
         <button type="button" onClick={() => setCounter(counter - 1)}>
           -

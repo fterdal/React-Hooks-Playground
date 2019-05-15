@@ -4,10 +4,6 @@
   width: 100%;
 }
 
-form {
-  width: 100%;
-}
-
 #counter {
   border: 2px solid black;
   border-radius: 20px;
@@ -17,6 +13,15 @@ form {
   align-items: center;
   width: 50%;
   max-width: 500px;
+  margin-top: 20px;
+}
+
+#counter h1 {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
 }
 
 .counter-form {
