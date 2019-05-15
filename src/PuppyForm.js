@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react'
-import { PuppiesContext } from './PuppiesProvider'
+import { PuppiesContext, addPuppy } from './PuppiesProvider'
 
 const PuppyForm = () => {
-  const { addPuppy } = useContext(PuppiesContext)
+  const { dispatch } = useContext(PuppiesContext)
   const [name, setName] = useState('')
   const handleSubmit = evt => {
     evt.preventDefault()
-    addPuppy(name)
+    dispatch(addPuppy(name))
   }
   return (
     <form onSubmit={handleSubmit}>

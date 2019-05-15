@@ -4,7 +4,8 @@ import { PuppiesContext } from './PuppiesProvider'
 // NOTE that even though the context is changing, the
 // component will not re-render.
 const PuppyList = () => {
-  const { puppies } = useContext(PuppiesContext)
+  const { state: puppies } = useContext(PuppiesContext)
+  // console.log('state', state)
   return (
     <div>
       <ul>

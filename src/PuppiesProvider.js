@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 
 export const PuppiesContext = React.createContext()
 
@@ -13,6 +13,13 @@ const initialPuppies = [
   },
 ]
 
+const ADD_PUPPY = 'ADD_PUPPY'
+
+export const addPuppy = puppy => ({
+  type: ADD_PUPPY,
+  puppy,
+})
+
 const nextId = arr => {
   return (
     1 +
@@ -22,22 +29,40 @@ const nextId = arr => {
   )
 }
 
-const puppiesContext = {
-  puppies: initialPuppies,
-  addPuppy: function(name) {
-    console.log('this', this)
-    this.puppies.push({
-      id: nextId(this.puppies),
-      name,
-    })
-  },
+const reducer = (state, action) => {
+  switch (action.type) {
+    case ADD_PUPPY: {
+      const newPuppy = {
+        name: action.puppy,
+        id: nextId(state),
+      }
+      return [...state, newPuppy]
+    }
+    default:
+      return state
+  }
 }
-puppiesContext.addPuppy = puppiesContext.addPuppy.bind(puppiesContext)
 
-const PuppiesProvider = props => (
-  <PuppiesContext.Provider value={puppiesContext}>
-    {props.children}
-  </PuppiesContext.Provider>
-)
+/* ☢️ MUTATES AN ARRAY. REACT COMPONENTS WILL NOT KNOW TO RE-RENDER */
+// const puppiesContext = {
+//   puppies: initialPuppies,
+//   addPuppy: function(name) {
+//     console.log('this', this)
+//     this.puppies.push({
+//       id: nextId(this.puppies),
+//       name,
+//     })
+//   },
+// }
+// puppiesContext.addPuppy = puppiesContext.addPuppy.bind(puppiesContext)
+
+const PuppiesProvider = props => {
+  const [state, dispatch] = useReducer(reducer, initialPuppies)
+  return (
+    <PuppiesContext.Provider value={{ state, dispatch }}>
+      {props.children}
+    </PuppiesContext.Provider>
+  )
+}
 
 export default PuppiesProvider
