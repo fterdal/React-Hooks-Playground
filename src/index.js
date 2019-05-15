@@ -1,14 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 // import Counter from './Counter'
-import Puppies from './Puppies'
+import PuppiesProvider from './PuppiesProvider'
+import PuppyForm from './PuppyForm'
+import PuppyList from './PuppyList'
 
 import './index.css'
 const App = () => {
   return (
     <div id="container">
       {/* <Counter /> */}
-      <Puppies />
+      <PuppiesProvider>
+        <div className="puppy-container">
+          <PuppyForm />
+          <PuppyList />
+        </div>
+      </PuppiesProvider>
     </div>
   )
 }

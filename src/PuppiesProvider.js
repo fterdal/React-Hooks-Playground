@@ -1,6 +1,4 @@
 import React from 'react'
-import PuppyForm from './PuppyForm'
-import PuppyList from './PuppyList'
 
 export const PuppiesContext = React.createContext()
 
@@ -36,15 +34,10 @@ const puppiesContext = {
 }
 puppiesContext.addPuppy = puppiesContext.addPuppy.bind(puppiesContext)
 
-const Puppies = () => {
-  return (
-    <div>
-      <PuppiesContext.Provider value={puppiesContext}>
-        <PuppyForm /> {/* This */}
-        <PuppyList />
-      </PuppiesContext.Provider>
-    </div>
-  )
-}
+const PuppiesProvider = props => (
+  <PuppiesContext.Provider value={puppiesContext}>
+    {props.children}
+  </PuppiesContext.Provider>
+)
 
-export default Puppies
+export default PuppiesProvider

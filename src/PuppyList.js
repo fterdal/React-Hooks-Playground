@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { PuppiesContext } from './Puppies'
+import { PuppiesContext } from './PuppiesProvider'
 
 // NOTE that even though the context is changing, the
 // component will not re-render.
