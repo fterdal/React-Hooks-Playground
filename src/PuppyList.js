@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { PuppiesContext } from './PuppiesProvider'
 import PuppyItem from './PuppyItem'
 
-// NOTE that now, the component re-renders because the state from PuppiesContext
+// NOTE that now the component re-renders because the state from PuppiesContext
 // is different. Not just mutated, but actually a different object
 import './PuppyList.css'
 const PuppyList = () => {

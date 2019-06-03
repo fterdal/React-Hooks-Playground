@@ -71,10 +71,16 @@ const initialPuppies = [
   },
 ]
 
+// const initialState = {
+//   puppies: initialPuppies,
+//   counter: initialCounter,
+// }
+
 const PuppiesProvider = props => {
   const [state, dispatch] = useReducer(reducer, initialPuppies)
   return (
     <PuppiesContext.Provider value={{ state, dispatch }}>
+      {'PuppiesContext Provider:' + new Date()}
       {props.children}
     </PuppiesContext.Provider>
   )

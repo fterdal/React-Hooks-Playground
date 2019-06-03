@@ -12,9 +12,10 @@ const PuppyForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       {/* <label htmlFor="name">Name:</label> */}
+      {'Puppy Form:' + new Date()}
       <input
         name="name"
-        onChange={(evt) => setName(evt.target.value)}
+        onChange={evt => setName(evt.target.value)}
         value={name}
       />
       <button type="submit">Add Puppy</button>
